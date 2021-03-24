@@ -1,0 +1,18 @@
+# Debian GNU/Linux testing main
+
+deb http://mirrors.cloud.aliyuncs.com/debian/ testing main
+deb-src http://mirrors.cloud.aliyuncs.com/debian/ testing main
+
+#deb http://security.debian.org/debian-security testing/updates main
+#deb-src http://security.debian.org/debian-security testing/updates main
+
+deb http://security.debian.org/debian-security testing-security/updates main
+deb-src http://security.debian.org/debian-security testing-security/updates main
+
+# testing-updates
+deb http://mirrors.cloud.aliyuncs.com/debian/ testing-updates main
+deb-src http://mirrors.cloud.aliyuncs.com/debian/ testing-updates main
+
+
+#deb [arch=amd64] http://mirrors.cloud.aliyuncs.com/docker-ce/linux/debian buster stable
+# deb-src [arch=amd64] http://mirrors.cloud.aliyuncs.com/docker-ce/linux/debian buster stable

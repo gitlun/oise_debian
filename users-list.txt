@@ -1,0 +1,4 @@
+sftper:x:1011:1011:sftper:/home/sftper:/bin/false
+giter:x:1012:1012:giter:/home/giter:/bin/bash
+devr:x:1013:1013:devr:/home/devr:/bin/false
+porter:x:1015:1015:porter:/home/porter:/bin/bash
