@@ -1,16 +1,30 @@
 #!/bin/bash
-#1.通过阿里云后台VNC登录，运行本bash
-#2.完成后本地运行sshlogin.sh
 #if debian runs unstable, use this sh to reinstall system, compare to full-install, it's skip
 #1. create disk
-#2. create folders
 
-#Backup /etc/safe-rm.conf, docker container, /etc/logrotate.d, /etc/nginx, /etc/passwd, /etc/ssh, /etc/letsencrypt
-# /root/.ssh/authorized_keys, /home
-# crontab -e
-#0 2 * * * /bin/bash /dskr/bak/db/mysql/byboat/task/buadt.sh
-#0 2 * * * /bin/bash /dskr/bak/git/erp.dev/task/crona.sh
-#0 2 * * * /bin/bash /dskr/bak/git/erpapp/task/crona.sh
+#fdisk /dev/vdb << EOF
+#n
+#p
+#1
+# 
+# 
+#w
+#EOF
+#mkfs -t ext4 /dev/vdb1
+#same as vdc
+
+#OR
+#echo "n
+#p
+#1
+# 
+# 
+#w
+#" | fdisk /dev/vdb && mkfs.ext4 -F /dev/vdb1
+
+#2.通过阿里云后台远程登录，运行本bash
+#wget -qO- https://raw.githubusercontent.com/gitlun/oise_debian/master/debianReady.sh | bash
+#3.完成后本地运行sshlogin.sh
 
 #check user
 if [ `whoami` = "root" ];then
@@ -39,11 +53,11 @@ echo -e "\033[42;30m -------------Setup Swap Done------------- \033[0m \n"
 echo -e "\033[43;30m -------------Remount Disk------------- \033[0m"
 
 mkdir /dska
-mount /dev/vdb /dska
+mount /dev/vdb1 /dska
 echo "$(blkid /dev/vdb | awk '{print $2}' | sed 's/\"//g') /dska ext4 defaults 0 0" >> /etc/fstab
 
 mkdir /dskr
-mount /dev/vdc /dskr
+mount /dev/vdc1 /dskr
 echo "$(blkid /dev/vdc | awk '{print $2}' | sed 's/\"//g') /dskr ext4 defaults 0 0" >> /etc/fstab
 
 echo -e "\033[43;30m -------------Remount Disk Done------------- \033[0m"
